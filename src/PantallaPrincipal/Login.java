@@ -15,6 +15,9 @@ import javax.swing.JSeparator;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
+import Registro.Registro;
+import Usuarios.UsuariosAdmin;
+
 public class Login extends JFrame{
 
 	private JPanel contentPane;
@@ -131,6 +134,21 @@ public class Login extends JFrame{
 		JButton btnNewButton = new JButton("Login");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				
+				if (textField.getText().equals("admin") && textField_1.getText().equals("admin")) {
+					EventQueue.invokeLater(new Runnable() {
+						public void run() {
+							try {
+								UsuariosAdmin frame = new UsuariosAdmin();
+								frame.setVisible(true);
+								setVisible(false);
+							} catch (Exception e) {
+								e.printStackTrace();
+							}
+						}
+					});
+				}
+				
 			}
 		});
 		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
@@ -142,6 +160,19 @@ public class Login extends JFrame{
 		JButton btnNewButton_1 = new JButton("Registro");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				
+				EventQueue.invokeLater(new Runnable() {
+					public void run() {
+						try {
+							Registro frame = new Registro();
+							frame.setVisible(true);
+							setVisible(false);
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+					}
+				});
+				
 			}
 		});
 		GridBagConstraints gbc_btnNewButton_1 = new GridBagConstraints();

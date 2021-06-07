@@ -24,7 +24,7 @@ public class Coches extends JFrame{
 	private JTextField textField_2;
 	private JTextField textField_3;
 	
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -35,7 +35,7 @@ public class Coches extends JFrame{
 				}
 			}
 		});
-	}
+	}*/
 	
 	public Coches() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

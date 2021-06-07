@@ -6,6 +6,7 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -14,6 +15,10 @@ import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+
+import Coches.Coches;
+import Guardar.Guardar;
+import PantallaPrincipal.Login;
 
 public class Registro extends JFrame{
 
@@ -35,7 +40,7 @@ public class Registro extends JFrame{
 	private JSeparator separator_7;
 	private JSeparator separator_8;
 	
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -48,7 +53,7 @@ public class Registro extends JFrame{
 			}
 		});
 
-	}
+	}*/
 
 	public Registro() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -219,6 +224,30 @@ public class Registro extends JFrame{
 		btnNewButton = new JButton("Aceptar");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				
+				Guardar guardar = new Guardar();
+				String[]strings= {textField.getText()+";",textField_1.getText()+";",
+								textField_3.getText()+";",textField_4.getText()};
+				try {
+					guardar.GuardarData(strings);
+					
+				} catch (IOException e1) {
+					
+					e1.printStackTrace();
+				}
+				
+				EventQueue.invokeLater(new Runnable() {
+					public void run() {
+						try {
+							Coches frame = new Coches();
+							frame.setVisible(true);
+							setVisible(false);
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+					}
+				});
+				
 			}
 		});
 		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
@@ -231,6 +260,19 @@ public class Registro extends JFrame{
 		btnVolver = new JButton("Volver");
 		btnVolver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				
+				EventQueue.invokeLater(new Runnable() {
+					public void run() {
+						try {
+							Login frame = new Login();
+							frame.setVisible(true);
+							setVisible(false);
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+					}
+				});
+				
 			}
 		});
 		GridBagConstraints gbc_btnVolver = new GridBagConstraints();
