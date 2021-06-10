@@ -5,25 +5,23 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class Leer {
-
-	private String[][] listData = new String[999][999];
-	private String[] listDataPre = new String[999];
 	
 	public String[][] LeerData() throws IOException {
 		// Leer archivo
-		
+		String[][] listData = null;
+		String[] listDataPre; 
 		int i = 0;
 		int y = 0;
 		String cadena;
 		FileReader f = new FileReader("data/data.dat");
 		BufferedReader b = new BufferedReader(f);
 
-		for (int j = 0; (cadena = b.readLine()) != null; j++) {
-			for (int j2 = 0; j2 < 5; j2++) {
-				listDataPre = cadena.split(";");
-				listData[j][j2] = listDataPre[j2];
-			}
-		}
+		while((cadena = b.readLine())!=null) {
+        	listData[i] = cadena.split(";");
+        	i++;
+        }
+		
+		System.out.println(listData[0]);
 
 		b.close();
 		return listData;

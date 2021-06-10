@@ -135,7 +135,6 @@ public class UsuariosAdmin extends JFrame {
 						
 						}
 						
-									
 						guardar.GuardarDataSobrescribir(strings);
 					
 					} catch (IOException e1) {

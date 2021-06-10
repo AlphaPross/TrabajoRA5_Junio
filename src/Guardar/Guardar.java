@@ -8,6 +8,8 @@ import Usuarios.UsuariosAdmin;
 
 public class Guardar {
 	
+	Leer leer = new Leer();
+	
 	public void GuardarData(String [] cadena) throws IOException {
         FileWriter f = new FileWriter("data/data.dat",true);
         BufferedWriter b = new BufferedWriter(f);
@@ -19,26 +21,18 @@ public class Guardar {
 		
 	}
 	
-	public void GuardarLibros(String cadena) throws IOException {
-		FileWriter f = new FileWriter("data/Libros.dat",true);
-        BufferedWriter b = new BufferedWriter(f);
-        b.newLine();
-        b.write(cadena);
-        b.close(); 
-	}
-	
 	public void GuardarDataSobrescribir(String [][] cadena) throws IOException {
 		FileWriter f = new FileWriter("data/data.dat");
         BufferedWriter b = new BufferedWriter(f);
         
-        for ( int j= 0; j <= 2; j++) {
+        for ( int j= 0; j < cadena.length; j++) {
         	for (int i = 0; i < 5; i++) {
         		if (cadena[j][i]!="") {
         			if (i<4) {
         				b.write(cadena[j][i]+";");
 					}
         			if (i==4) {
-						b.write(cadena[j][i]);
+						b.write(cadena[j][4]);
 					}
 				}
         	}
