@@ -15,6 +15,7 @@ import javax.swing.JSeparator;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
+import Coches.Coches;
 import Registro.Registro;
 import Usuarios.UsuariosAdmin;
 
@@ -140,6 +141,20 @@ public class Login extends JFrame{
 						public void run() {
 							try {
 								UsuariosAdmin frame = new UsuariosAdmin();
+								frame.setVisible(true);
+								setVisible(false);
+							} catch (Exception e) {
+								e.printStackTrace();
+							}
+						}
+					});
+				}
+				
+				if (textField.getText().equals("user") && textField_1.getText().equals("user")) {
+					EventQueue.invokeLater(new Runnable() {
+						public void run() {
+							try {
+								Coches frame = new Coches();
 								frame.setVisible(true);
 								setVisible(false);
 							} catch (Exception e) {

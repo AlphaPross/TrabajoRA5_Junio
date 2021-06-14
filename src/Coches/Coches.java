@@ -6,6 +6,7 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -24,20 +25,7 @@ public class Coches extends JFrame{
 	private JTextField textField_2;
 	private JTextField textField_3;
 	
-	/*public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Coches frame = new Coches();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}*/
-	
-	public Coches() {
+	public Coches() throws IOException {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 600, 325);
 		contentPane = new JPanel();
@@ -74,6 +62,10 @@ public class Coches extends JFrame{
 		gbc_textField.gridy = 1;
 		contentPane.add(textField, gbc_textField);
 		textField.setColumns(10);
+		
+		Leer leer = new Leer();
+		String [] list=leer.LeerLibros();
+		textField.setText(list[0]);
 		
 		JLabel lblNewLabel_4 = new JLabel("");
 		GridBagConstraints gbc_lblNewLabel_4 = new GridBagConstraints();
@@ -115,6 +107,8 @@ public class Coches extends JFrame{
 		contentPane.add(textField_1, gbc_textField_1);
 		textField_1.setColumns(10);
 		
+		textField_1.setText(list[1]);
+		
 		JSeparator separator_8 = new JSeparator();
 		GridBagConstraints gbc_separator_8 = new GridBagConstraints();
 		gbc_separator_8.insets = new Insets(0, 0, 5, 5);
@@ -139,6 +133,8 @@ public class Coches extends JFrame{
 		gbc_textField_2.gridy = 5;
 		contentPane.add(textField_2, gbc_textField_2);
 		textField_2.setColumns(10);
+		
+		textField_2.setText(list[2]);
 		
 		JComboBox comboBox = new JComboBox();
 		GridBagConstraints gbc_comboBox = new GridBagConstraints();
@@ -173,9 +169,14 @@ public class Coches extends JFrame{
 		contentPane.add(textField_3, gbc_textField_3);
 		textField_3.setColumns(10);
 		
+		textField_3.setText(list[3]);
+		
 		JButton btnNewButton = new JButton("First");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				
+				
+				
 			}
 		});
 		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
@@ -187,6 +188,9 @@ public class Coches extends JFrame{
 		JButton btnNewButton_1 = new JButton("Last");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				
+				
+				
 			}
 		});
 		GridBagConstraints gbc_btnNewButton_1 = new GridBagConstraints();
@@ -198,6 +202,9 @@ public class Coches extends JFrame{
 		JButton btnNewButton_2 = new JButton("Previous");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				
+				
+				
 			}
 		});
 		GridBagConstraints gbc_btnNewButton_2 = new GridBagConstraints();
@@ -209,6 +216,9 @@ public class Coches extends JFrame{
 		JButton btnNewButton_2_1 = new JButton("Next");
 		btnNewButton_2_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				
+				
+				
 			}
 		});
 		GridBagConstraints gbc_btnNewButton_2_1 = new GridBagConstraints();
@@ -220,6 +230,9 @@ public class Coches extends JFrame{
 		JButton btnNewButton_3 = new JButton("Insertar");
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				
+				
+				
 			}
 		});
 		
@@ -245,6 +258,9 @@ public class Coches extends JFrame{
 		JButton btnNewButton_4 = new JButton("Modificar");
 		btnNewButton_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				
+				
+				
 			}
 		});
 		GridBagConstraints gbc_btnNewButton_4 = new GridBagConstraints();
@@ -256,6 +272,9 @@ public class Coches extends JFrame{
 		JButton btnNewButton_5 = new JButton("Eliminar");
 		btnNewButton_5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				
+				
+				
 			}
 		});
 		GridBagConstraints gbc_btnNewButton_5 = new GridBagConstraints();

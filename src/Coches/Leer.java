@@ -1,4 +1,4 @@
-package Opciones;
+package Coches;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -39,7 +39,7 @@ public class Leer {
 		String []LeerLibros = new String[999];
 		int i=0;
         String cadena;
-        FileReader f = new FileReader("data/Libros.dat");
+        FileReader f = new FileReader("data/car.dat");
         BufferedReader b = new BufferedReader(f);
         while((cadena = b.readLine())!=null) {
         	LeerLibros[i] = cadena;

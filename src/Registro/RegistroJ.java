@@ -1,5 +1,6 @@
 package Registro;
 
+import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -20,8 +21,27 @@ import Coches.Coches;
 import Guardar.Guardar;
 import PantallaPrincipal.Login;
 
-public class Registro extends JFrame{
+public class RegistroJ extends JFrame {
 
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					RegistroJ frame = new RegistroJ();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
 	private JPanel contentPane;
 	private JTextField textField;
 	private JTextField textField_1;
@@ -43,7 +63,7 @@ public class Registro extends JFrame{
 	private JLabel lblNewLabel_5;
 	private JTextField textField_5;
 
-	public Registro() {
+	public RegistroJ() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 275);
 		contentPane = new JPanel();
@@ -214,8 +234,8 @@ public class Registro extends JFrame{
 			public void actionPerformed(ActionEvent arg0) {
 				
 				Guardar guardar = new Guardar();
-				String[]strings= {textField_1.getText()+";",textField_2.getText()+";",
-								textField.getText()+";",textField_4.getText()+";",textField_5.getText()+";"+1};
+				String[]strings= {textField.getText()+";",textField_1.getText()+";",
+								textField_3.getText()+";",textField_4.getText()};
 				try {
 					guardar.GuardarData(strings);
 					
@@ -295,5 +315,5 @@ public class Registro extends JFrame{
 		gbc_btnVolver.gridy = 13;
 		contentPane.add(btnVolver, gbc_btnVolver);
 	}
-	
+
 }

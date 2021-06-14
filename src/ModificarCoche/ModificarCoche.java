@@ -157,7 +157,7 @@ public class ModificarCoche extends JFrame{
 		contentPane.add(textField_3, gbc_textField_3);
 		textField_3.setColumns(10);
 		
-		JButton btnNewButton_2_1 = new JButton("Vovler");
+		JButton btnNewButton_2_1 = new JButton("Volver");
 		btnNewButton_2_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			}

@@ -30,13 +30,6 @@ public class ListadoCoches extends JFrame {
 	private JPanel contentPane2;
 	private JTable table;
 
-	/*
-	 * public static void main(String[] args) { EventQueue.invokeLater(new
-	 * Runnable() { public void run() { try { ListadoCoches frame = new
-	 * ListadoCoches(); frame.setVisible(true); } catch (Exception e) {
-	 * e.printStackTrace(); } } }); }
-	 */
-
 	public ListadoCoches() throws IOException {
 		setTitle("Listado Coches");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -91,10 +84,12 @@ public class ListadoCoches extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 
+				int num = table.getSelectedRow()+1;
+				
 				JFrame foto = new JFrame();
 				foto.setBounds(50, 100, 400, 400);
 				foto.setVisible(true);
-				foto.add(new JLabel(new ImageIcon("image/1car.png")));
+				foto.add(new JLabel(new ImageIcon("image/"+num+"car.png")));
 				foto.pack();
 
 			}
