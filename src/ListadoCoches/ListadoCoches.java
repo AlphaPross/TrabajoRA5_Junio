@@ -109,6 +109,7 @@ public class ListadoCoches extends JFrame {
 						try {
 							UsuariosAdmin frame = new UsuariosAdmin();
 							frame.setVisible(true);
+							frame.setLocationRelativeTo(null);
 							setVisible(false);
 						} catch (Exception e) {
 							e.printStackTrace();

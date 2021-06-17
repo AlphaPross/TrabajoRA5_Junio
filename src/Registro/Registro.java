@@ -230,6 +230,7 @@ public class Registro extends JFrame{
 							int num = 1;
 							Coches frame = new Coches(num);
 							frame.setVisible(true);
+							frame.setLocationRelativeTo(null);
 							setVisible(false);
 						} catch (Exception e) {
 							e.printStackTrace();
@@ -280,6 +281,7 @@ public class Registro extends JFrame{
 						try {
 							Login frame = new Login();
 							frame.setVisible(true);
+							frame.setLocationRelativeTo(null);
 							setVisible(false);
 						} catch (Exception e) {
 							e.printStackTrace();

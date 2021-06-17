@@ -186,6 +186,7 @@ public class ModificarCoche extends JFrame{
 							int num = 1;
 							Coches frame = new Coches(num);
 							frame.setVisible(true);
+							frame.setLocationRelativeTo(null);
 							setVisible(false);
 						} catch (Exception e) {
 							e.printStackTrace();
@@ -242,6 +243,7 @@ public class ModificarCoche extends JFrame{
 							int num = 1;
 							Coches frame = new Coches(num);
 							frame.setVisible(true);
+							frame.setLocationRelativeTo(null);
 							setVisible(false);
 						} catch (Exception e) {
 							e.printStackTrace();

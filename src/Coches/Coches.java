@@ -205,6 +205,7 @@ public class Coches extends JFrame{
 						try {
 							Coches frame = new Coches(num2);
 							frame.setVisible(true);
+							frame.setLocationRelativeTo(null);
 							setVisible(false);
 						} catch (Exception e) {
 							e.printStackTrace();
@@ -229,6 +230,7 @@ public class Coches extends JFrame{
 						try {
 							Coches frame = new Coches(num3);
 							frame.setVisible(true);
+							frame.setLocationRelativeTo(null);
 							setVisible(false);
 						} catch (Exception e) {
 							e.printStackTrace();
@@ -259,6 +261,7 @@ public class Coches extends JFrame{
 						try {
 							Coches frame = new Coches(num5);
 							frame.setVisible(true);
+							frame.setLocationRelativeTo(null);
 							setVisible(false);
 						} catch (Exception e) {
 							e.printStackTrace();
@@ -288,6 +291,7 @@ public class Coches extends JFrame{
 						try {
 							Coches frame = new Coches(num7);
 							frame.setVisible(true);
+							frame.setLocationRelativeTo(null);
 							setVisible(false);
 						} catch (Exception e) {
 							e.printStackTrace();
@@ -313,6 +317,7 @@ public class Coches extends JFrame{
 						try {
 							InsertarCoche frame = new InsertarCoche(num8);
 							frame.setVisible(true);
+							frame.setLocationRelativeTo(null);
 							setVisible(false);
 						} catch (Exception e) {
 							e.printStackTrace();
@@ -352,6 +357,7 @@ public class Coches extends JFrame{
 						try {
 							ModificarCoche frame = new ModificarCoche(num9);
 							frame.setVisible(true);
+							frame.setLocationRelativeTo(null);
 							setVisible(false);
 						} catch (Exception e) {
 							e.printStackTrace();

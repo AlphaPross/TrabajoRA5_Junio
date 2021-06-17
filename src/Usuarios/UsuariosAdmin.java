@@ -158,6 +158,7 @@ public class UsuariosAdmin extends JFrame {
 						try {
 							Login frame = new Login();
 							frame.setVisible(true);
+							frame.setLocationRelativeTo(null);
 							setVisible(false);
 						} catch (Exception e) {
 							e.printStackTrace();
@@ -182,6 +183,7 @@ public class UsuariosAdmin extends JFrame {
 						try {
 							ListadoCoches frame = new ListadoCoches();
 							frame.setVisible(true);
+							frame.setLocationRelativeTo(null);
 							setVisible(false);
 						} catch (Exception e) {
 							e.printStackTrace();
