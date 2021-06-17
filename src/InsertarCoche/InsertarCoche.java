@@ -4,6 +4,7 @@ import java.awt.EventQueue;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
@@ -32,6 +33,7 @@ public class InsertarCoche extends JFrame{
 	private JTextField textField_3;
 	
 	public InsertarCoche(int num) {
+		setIconImage(Toolkit.getDefaultToolkit().getImage("image/concesionario.png"));
 		setTitle("Insertar Coche");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 300, 275);

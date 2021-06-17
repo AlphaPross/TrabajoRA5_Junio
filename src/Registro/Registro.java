@@ -4,6 +4,7 @@ import java.awt.EventQueue;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
@@ -44,6 +45,7 @@ public class Registro extends JFrame{
 	private JTextField textField_5;
 
 	public Registro() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage("image/concesionario.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 275);
 		contentPane = new JPanel();

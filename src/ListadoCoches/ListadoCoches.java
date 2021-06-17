@@ -5,6 +5,7 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Image;
 import java.awt.Insets;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
@@ -31,6 +32,7 @@ public class ListadoCoches extends JFrame {
 	private JTable table;
 
 	public ListadoCoches() throws IOException {
+		setIconImage(Toolkit.getDefaultToolkit().getImage("image/concesionario.png"));
 		setTitle("Listado Coches");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 600, 215);

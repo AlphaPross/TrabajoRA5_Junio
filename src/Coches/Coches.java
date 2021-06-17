@@ -4,6 +4,7 @@ import java.awt.EventQueue;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
@@ -34,6 +35,7 @@ public class Coches extends JFrame{
 	
 	public Coches(int num) throws IOException {
 		this.num=num;
+		setIconImage(Toolkit.getDefaultToolkit().getImage("image/concesionario.png"));
 		setTitle("Coches");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 600, 325);

@@ -4,6 +4,7 @@ import java.awt.EventQueue;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedInputStream;
@@ -63,6 +64,7 @@ public class UsuariosAdmin extends JFrame {
 	}
 
 	public UsuariosAdmin() throws IOException {
+		setIconImage(Toolkit.getDefaultToolkit().getImage("image/concesionario.png"));
 		setTitle("Usuarios");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 600, 215);

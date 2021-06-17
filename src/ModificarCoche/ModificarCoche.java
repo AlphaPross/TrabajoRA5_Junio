@@ -4,6 +4,7 @@ import java.awt.EventQueue;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
@@ -33,6 +34,7 @@ public class ModificarCoche extends JFrame{
 	private int num;
 	
 	public ModificarCoche(int num) throws IOException {
+		setIconImage(Toolkit.getDefaultToolkit().getImage("image/concesionario.png"));
 		this.num=num;
 		setTitle("Modificar Coche");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
