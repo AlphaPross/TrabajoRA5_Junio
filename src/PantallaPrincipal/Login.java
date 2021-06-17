@@ -12,6 +12,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
@@ -25,7 +26,7 @@ public class Login extends JFrame{
 
 	private JPanel contentPane;
 	private JTextField textField;
-	private JTextField textField_1;
+	private JPasswordField passwordField;
 	
 	public static void main(String[] args) {
 		
@@ -87,6 +88,7 @@ public class Login extends JFrame{
 		contentPane.add(separator, gbc_separator);
 		
 		textField = new JTextField();
+		textField.setToolTipText("USA: admin o user");
 		GridBagConstraints gbc_textField = new GridBagConstraints();
 		gbc_textField.gridwidth = 2;
 		gbc_textField.insets = new Insets(0, 0, 5, 5);
@@ -111,15 +113,16 @@ public class Login extends JFrame{
 		gbc_lblNewLabel_1.gridy = 4;
 		contentPane.add(lblNewLabel_1, gbc_lblNewLabel_1);
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		GridBagConstraints gbc_textField_1 = new GridBagConstraints();
-		gbc_textField_1.gridwidth = 2;
-		gbc_textField_1.insets = new Insets(0, 0, 5, 5);
-		gbc_textField_1.fill = GridBagConstraints.HORIZONTAL;
-		gbc_textField_1.gridx = 4;
-		gbc_textField_1.gridy = 4;
-		contentPane.add(textField_1, gbc_textField_1);
+		passwordField = new JPasswordField();
+		passwordField.setColumns(10);
+		passwordField.setToolTipText("USA: 1234 o user");
+		GridBagConstraints gbc_passwordField = new GridBagConstraints();
+		gbc_passwordField.gridwidth = 2;
+		gbc_passwordField.insets = new Insets(0, 0, 5, 5);
+		gbc_passwordField.fill = GridBagConstraints.HORIZONTAL;
+		gbc_passwordField.gridx = 4;
+		gbc_passwordField.gridy = 4;
+		contentPane.add(passwordField, gbc_passwordField);
 		
 		JSeparator separator_4 = new JSeparator();
 		GridBagConstraints gbc_separator_4 = new GridBagConstraints();
@@ -154,7 +157,7 @@ public class Login extends JFrame{
 				int num=0;
 				int num2=5;
 				for (int j = 0; j < listSplit.length; j++) {
-					if (textField.getText().equals(listSplit[j]) && textField_1.getText().equals(listSplit[j+5])) {
+					if (textField.getText().equals(listSplit[j]) && passwordField.getText().equals(listSplit[j+5])) {
 						EventQueue.invokeLater(new Runnable() {
 							public void run() {
 								try {
@@ -171,7 +174,7 @@ public class Login extends JFrame{
 				
 				}
 				
-				if (textField.getText().equals("user") && textField_1.getText().equals("user")) {
+				if (textField.getText().equals("user") && passwordField.getText().equals("user")) {
 					EventQueue.invokeLater(new Runnable() {
 						public void run() {
 							try {
