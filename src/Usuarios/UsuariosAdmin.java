@@ -57,10 +57,6 @@ public class UsuariosAdmin extends JFrame {
 		}
 
 		String [] strings=Arrays.toString(arreglo).split(";");
-
-		for (int i = 0; i < strings.length; i++) {
-			System.out.println(strings[i]);
-		}
 		
 		return strings;
 		
@@ -99,7 +95,7 @@ public class UsuariosAdmin extends JFrame {
 		Leer leer = new Leer();
 		table = new JTable();
 		table.setModel(new DefaultTableModel(leer.LeerData(),
-				new String[] { "Username", "Nombre", "Tel\u00E9fono", "Email", "Coches Totales" }));
+				new String[] { "Username", "Coches Totales", "Nombre", "Teléfono", "Email" }));
 		scrollPane.setViewportView(table);
 
 		JSeparator separator_3 = new JSeparator();

@@ -62,8 +62,7 @@ public class ListadoCoches extends JFrame {
 
 		Leer leer = new Leer();
 		table = new JTable();
-		table.setModel(new DefaultTableModel(leer.LeerCar(),
-				new String[] { "Matr\u00EDcula", "Marca", "Modelo", "Precio", "Propietario" }));
+		table.setModel(new DefaultTableModel(leer.LeerCar(),new String[] { "Matr\u00EDcula", "Marca", "Modelo", "Precio", "Propietario" }));
 		scrollPane.setViewportView(table);
 
 		JSeparator separator_3 = new JSeparator();

@@ -1,6 +1,8 @@
 package Guardar;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -15,6 +17,19 @@ public class Guardar {
         BufferedWriter b = new BufferedWriter(f);
         b.newLine();
         for ( int j= 0; j < cadena.length; j++) {
+        	
+        	b.write(cadena[j]);
+		}
+        b.close(); 
+		
+	}
+	
+	public void GuardarCar(String [] cadena) throws IOException {
+        FileWriter f = new FileWriter("data/Car.dat",true);
+        BufferedWriter b = new BufferedWriter(f);
+        b.newLine();
+        for ( int j= 0; j < cadena.length; j++) {
+        	
         	b.write(cadena[j]);
 		}
         b.close(); 

@@ -7,6 +7,7 @@ import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -17,6 +18,11 @@ import javax.swing.JSeparator;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
+import Guardar.Leer;
+import InsertarCoche.InsertarCoche;
+import ModificarCoche.ModificarCoche;
+import PantallaPrincipal.Login;
+
 public class Coches extends JFrame{
 
 	private JPanel contentPane;
@@ -24,8 +30,11 @@ public class Coches extends JFrame{
 	private JTextField textField_1;
 	private JTextField textField_2;
 	private JTextField textField_3;
+	public int num;
 	
-	public Coches() throws IOException {
+	public Coches(int num) throws IOException {
+		this.num=num;
+		setTitle("Coches");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 600, 325);
 		contentPane = new JPanel();
@@ -53,6 +62,32 @@ public class Coches extends JFrame{
 		gbc_lblNewLabel.gridy = 1;
 		contentPane.add(lblNewLabel, gbc_lblNewLabel);
 		
+		JComboBox comboBox = new JComboBox();
+		GridBagConstraints gbc_comboBox = new GridBagConstraints();
+		gbc_comboBox.insets = new Insets(0, 0, 5, 5);
+		gbc_comboBox.fill = GridBagConstraints.HORIZONTAL;
+		gbc_comboBox.gridx = 6;
+		gbc_comboBox.gridy = 5;
+		contentPane.add(comboBox, gbc_comboBox);
+		
+		Leer leer = new Leer();
+		ArrayList<String> list=leer.LeerLibros();
+		
+		for (int i = 1; i < list.size()+1; i++) {
+			comboBox.addItem(i);
+		}
+		
+		String [] list2 = new String [list.size()];
+		
+		for (int j = 0; j < this.num; j++) {
+			list2 = list.get(j).split(";");
+		}
+		
+		String text1 = list2[0];
+		String text2 = list2[1];
+		String text3 = list2[2];
+		String text4 = list2[3];
+		
 		textField = new JTextField();
 		GridBagConstraints gbc_textField = new GridBagConstraints();
 		gbc_textField.gridwidth = 3;
@@ -63,9 +98,7 @@ public class Coches extends JFrame{
 		contentPane.add(textField, gbc_textField);
 		textField.setColumns(10);
 		
-		Leer leer = new Leer();
-		String [] list=leer.LeerLibros();
-		textField.setText(list[0]);
+		textField.setText(text1);
 		
 		JLabel lblNewLabel_4 = new JLabel("");
 		GridBagConstraints gbc_lblNewLabel_4 = new GridBagConstraints();
@@ -107,7 +140,7 @@ public class Coches extends JFrame{
 		contentPane.add(textField_1, gbc_textField_1);
 		textField_1.setColumns(10);
 		
-		textField_1.setText(list[1]);
+		textField_1.setText(text2);
 		
 		JSeparator separator_8 = new JSeparator();
 		GridBagConstraints gbc_separator_8 = new GridBagConstraints();
@@ -134,15 +167,7 @@ public class Coches extends JFrame{
 		contentPane.add(textField_2, gbc_textField_2);
 		textField_2.setColumns(10);
 		
-		textField_2.setText(list[2]);
-		
-		JComboBox comboBox = new JComboBox();
-		GridBagConstraints gbc_comboBox = new GridBagConstraints();
-		gbc_comboBox.insets = new Insets(0, 0, 5, 5);
-		gbc_comboBox.fill = GridBagConstraints.HORIZONTAL;
-		gbc_comboBox.gridx = 6;
-		gbc_comboBox.gridy = 5;
-		contentPane.add(comboBox, gbc_comboBox);
+		textField_2.setText(text3);
 		
 		JSeparator separator_9 = new JSeparator();
 		GridBagConstraints gbc_separator_9 = new GridBagConstraints();
@@ -169,13 +194,23 @@ public class Coches extends JFrame{
 		contentPane.add(textField_3, gbc_textField_3);
 		textField_3.setColumns(10);
 		
-		textField_3.setText(list[3]);
+		textField_3.setText(text4);
 		
 		JButton btnNewButton = new JButton("First");
+		int num2=1;
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
-				
+				EventQueue.invokeLater(new Runnable() {
+					public void run() {
+						try {
+							Coches frame = new Coches(num2);
+							frame.setVisible(true);
+							setVisible(false);
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+					}
+				});
 				
 			}
 		});
@@ -186,10 +221,20 @@ public class Coches extends JFrame{
 		contentPane.add(btnNewButton, gbc_btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Last");
+		int num3=list.size();
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
-				
+				EventQueue.invokeLater(new Runnable() {
+					public void run() {
+						try {
+							Coches frame = new Coches(num3);
+							frame.setVisible(true);
+							setVisible(false);
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+					}
+				});
 				
 			}
 		});
@@ -200,10 +245,26 @@ public class Coches extends JFrame{
 		contentPane.add(btnNewButton_1, gbc_btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("Previous");
+		int num4=this.num;
+		if (num4>1) {
+			num4-=1;
+		}
+		int num5=num4;
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
 				
+				EventQueue.invokeLater(new Runnable() {
+					public void run() {
+						try {
+							Coches frame = new Coches(num5);
+							frame.setVisible(true);
+							setVisible(false);
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+					}
+				});
 				
 			}
 		});
@@ -214,10 +275,25 @@ public class Coches extends JFrame{
 		contentPane.add(btnNewButton_2, gbc_btnNewButton_2);
 		
 		JButton btnNewButton_2_1 = new JButton("Next");
+		int num6 = this.num;
+		if (num6<list.size()) {
+			num6+=1;
+		}
+		int num7=num6;
 		btnNewButton_2_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				
+				EventQueue.invokeLater(new Runnable() {
+					public void run() {
+						try {
+							Coches frame = new Coches(num7);
+							frame.setVisible(true);
+							setVisible(false);
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+					}
+				});
 				
 			}
 		});
@@ -228,10 +304,21 @@ public class Coches extends JFrame{
 		contentPane.add(btnNewButton_2_1, gbc_btnNewButton_2_1);
 		
 		JButton btnNewButton_3 = new JButton("Insertar");
+		int num8=this.num;
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				
+				EventQueue.invokeLater(new Runnable() {
+					public void run() {
+						try {
+							InsertarCoche frame = new InsertarCoche(num8);
+							frame.setVisible(true);
+							setVisible(false);
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+					}
+				});
 				
 			}
 		});
@@ -256,10 +343,21 @@ public class Coches extends JFrame{
 		contentPane.add(btnNewButton_3, gbc_btnNewButton_3);
 		
 		JButton btnNewButton_4 = new JButton("Modificar");
+		int num9=this.num;
 		btnNewButton_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				
+				EventQueue.invokeLater(new Runnable() {
+					public void run() {
+						try {
+							ModificarCoche frame = new ModificarCoche(num9);
+							frame.setVisible(true);
+							setVisible(false);
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+					}
+				});
 				
 			}
 		});

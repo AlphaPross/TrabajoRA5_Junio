@@ -227,7 +227,8 @@ public class Registro extends JFrame{
 				EventQueue.invokeLater(new Runnable() {
 					public void run() {
 						try {
-							Coches frame = new Coches();
+							int num = 1;
+							Coches frame = new Coches(num);
 							frame.setVisible(true);
 							setVisible(false);
 						} catch (Exception e) {

@@ -6,6 +6,7 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -16,6 +17,7 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import Coches.Coches;
+import Guardar.Leer;
 import Registro.Registro;
 import Usuarios.UsuariosAdmin;
 
@@ -136,25 +138,43 @@ public class Login extends JFrame{
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				if (textField.getText().equals("admin") && textField_1.getText().equals("admin")) {
-					EventQueue.invokeLater(new Runnable() {
-						public void run() {
-							try {
-								UsuariosAdmin frame = new UsuariosAdmin();
-								frame.setVisible(true);
-								setVisible(false);
-							} catch (Exception e) {
-								e.printStackTrace();
+				Leer leer = new Leer();
+				String[] list = new String[10];
+
+				try {
+					list=leer.LeerAmigos();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				String [] listSplit = new String [5];
+				listSplit=list[0].split(";");
+				
+				int num=0;
+				int num2=5;
+				for (int j = 0; j < listSplit.length; j++) {
+					if (textField.getText().equals(listSplit[j]) && textField_1.getText().equals(listSplit[j+5])) {
+						EventQueue.invokeLater(new Runnable() {
+							public void run() {
+								try {
+									UsuariosAdmin frame = new UsuariosAdmin();
+									frame.setVisible(true);
+									setVisible(false);
+								} catch (Exception e) {
+									e.printStackTrace();
+								}
 							}
-						}
-					});
+						});
+					}
+				
 				}
 				
 				if (textField.getText().equals("user") && textField_1.getText().equals("user")) {
 					EventQueue.invokeLater(new Runnable() {
 						public void run() {
 							try {
-								Coches frame = new Coches();
+								int num = 1;
+								Coches frame = new Coches(num);
 								frame.setVisible(true);
 								setVisible(false);
 							} catch (Exception e) {

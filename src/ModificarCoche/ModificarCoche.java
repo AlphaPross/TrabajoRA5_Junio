@@ -6,6 +6,10 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -15,6 +19,10 @@ import javax.swing.JSeparator;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
+import Coches.Coches;
+import Guardar.Guardar;
+import Guardar.Leer;
+
 public class ModificarCoche extends JFrame{
 
 	private JPanel contentPane;
@@ -22,21 +30,10 @@ public class ModificarCoche extends JFrame{
 	private JTextField textField_1;
 	private JTextField textField_2;
 	private JTextField textField_3;
+	private int num;
 	
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					ModificarCoche frame = new ModificarCoche();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-	
-	public ModificarCoche() {
+	public ModificarCoche(int num) throws IOException {
+		this.num=num;
 		setTitle("Modificar Coche");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 300, 275);
@@ -75,6 +72,22 @@ public class ModificarCoche extends JFrame{
 		contentPane.add(textField, gbc_textField);
 		textField.setColumns(10);
 		
+		Leer leer = new Leer();
+		ArrayList<String> list=leer.LeerLibros();
+		
+		String [] list2 = new String [list.size()];
+		
+		for (int j = 0; j < this.num; j++) {
+			list2 = list.get(j).split(";");
+		}
+		
+		String text1 = list2[0];
+		String text2 = list2[1];
+		String text3 = list2[2];
+		String text4 = list2[3];
+		
+		textField.setText(text1);
+		
 		JSeparator separator_6 = new JSeparator();
 		GridBagConstraints gbc_separator_6 = new GridBagConstraints();
 		gbc_separator_6.insets = new Insets(0, 0, 5, 0);
@@ -107,6 +120,8 @@ public class ModificarCoche extends JFrame{
 		contentPane.add(textField_1, gbc_textField_1);
 		textField_1.setColumns(10);
 		
+		textField_1.setText(text2);
+		
 		JSeparator separator_8 = new JSeparator();
 		GridBagConstraints gbc_separator_8 = new GridBagConstraints();
 		gbc_separator_8.insets = new Insets(0, 0, 5, 5);
@@ -131,6 +146,8 @@ public class ModificarCoche extends JFrame{
 		gbc_textField_2.gridy = 5;
 		contentPane.add(textField_2, gbc_textField_2);
 		textField_2.setColumns(10);
+		
+		textField_2.setText(text3);
 		
 		JSeparator separator_9 = new JSeparator();
 		GridBagConstraints gbc_separator_9 = new GridBagConstraints();
@@ -157,15 +174,81 @@ public class ModificarCoche extends JFrame{
 		contentPane.add(textField_3, gbc_textField_3);
 		textField_3.setColumns(10);
 		
+		textField_3.setText(text4);
+		
 		JButton btnNewButton_2_1 = new JButton("Volver");
 		btnNewButton_2_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				
+				EventQueue.invokeLater(new Runnable() {
+					public void run() {
+						try {
+							int num = 1;
+							Coches frame = new Coches(num);
+							frame.setVisible(true);
+							setVisible(false);
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+					}
+				});
+				
 			}
 		});
 		
 		JButton btnNewButton = new JButton("Modificar");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				
+				Leer leer = new Leer();
+				ArrayList<java.lang.String> listCoches = new ArrayList<>();
+				try {
+					listCoches = leer.LeerLibros();
+				} catch (IOException e2) {
+					// TODO Auto-generated catch block
+					e2.printStackTrace();
+				}
+				int num2=num;
+				String [] listSplit = listCoches.get(num2).split(";");
+				
+				Guardar guardar = new Guardar();
+				String[]strings= {textField.getText()+";",textField_1.getText()+";",
+								textField_2.getText()+";",textField_3.getText()+";"+listSplit[4]};
+				try {
+
+					BufferedReader file = new BufferedReader(new FileReader("data/car.dat"));
+			        
+			        String line;String input = "";
+			        int contador=0;
+			        while((line = file.readLine()) != null){
+			            
+			            if(line.contains(textField.getText())) {
+			            	guardar.GuardarCar(strings);		
+			            	
+			            }            
+			        contador++;
+			        }
+					
+					
+					
+				} catch (IOException e1) {
+					
+					e1.printStackTrace();
+				}
+				
+				EventQueue.invokeLater(new Runnable() {
+					public void run() {
+						try {
+							int num = 1;
+							Coches frame = new Coches(num);
+							frame.setVisible(true);
+							setVisible(false);
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+					}
+				});
+				
 			}
 		});
 		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
